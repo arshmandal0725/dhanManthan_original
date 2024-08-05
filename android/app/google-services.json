@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278468942226",
+    "project_id": "dhanmanthan",
+    "storage_bucket": "dhanmanthan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278468942226:android:8afd2b5877b2e4fb2e894b",
+        "android_client_info": {
+          "package_name": "com.dhanmanthan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278468942226-a4oq1g888h1438k6ns954b42u5mkt2c4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZLjX-4nvisFLtZwuZAd45yReteTrE_lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278468942226-a4oq1g888h1438k6ns954b42u5mkt2c4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
