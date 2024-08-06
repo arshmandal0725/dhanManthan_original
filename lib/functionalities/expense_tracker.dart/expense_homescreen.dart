@@ -1,3 +1,4 @@
+import 'package:dhanmanthan_original/api/api.dart';
 import 'package:dhanmanthan_original/providers/expense_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:dhanmanthan_original/models/expense.dart';
@@ -17,6 +18,7 @@ class ExpenseHomescreen extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState {
   void add(Expense exp) {
     ref.read(expenseProvider.notifier).add(exp);
+    API().createExpense(exp);
   }
 
   void remove(Expense expense) {

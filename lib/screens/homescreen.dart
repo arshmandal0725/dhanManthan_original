@@ -7,22 +7,22 @@ import 'package:dhanmanthan_original/tabs/profilepage_tab.dart';
 import 'package:dhanmanthan_original/widgets/my_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState {
   int _bottomNavIndex = 0;
   List<TheUser> users = [];
   TheUser? currentUser;
   late List<Widget> tabs;
-
   void _handleSignOut() async {
     try {
       await FirebaseAuth.instance.signOut();
@@ -45,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
       const SizedBox() // Placeholder for ProfileScreen
     ];
   }
+
+  
 
   @override
   Widget build(BuildContext context) {

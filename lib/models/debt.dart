@@ -5,43 +5,49 @@ import "package:intl/intl.dart";
 final formatter = DateFormat.yMd();
 const uuid = Uuid();
 
-enum Category { minus, plus }
+enum Catgory { minus, plus }
 
-const Map categoryIcon = {
-  Category.minus: Icons.arrow_downward,
-  Category.plus: Icons.arrow_upward
+const Map<Catgory, IconData> categoryIcon = {
+  Catgory.minus: Icons.arrow_downward,
+  Catgory.plus: Icons.arrow_upward
 };
 
 class Debt {
-  Debt(
-      {required this.title,
-      required this.amount,
-      required this.date,
-      required this.category})
-      : id = uuid.v4();
+  Debt({
+    required this.title,
+    required this.amount,
+    required this.date,
+    required this.category,
+  }) : id = uuid.v4();
 
   final String id;
   final String title;
   final double amount;
-  final Category category;
+  final Catgory category;
   final DateTime date;
 
-  get formattedDate {
+  String get formattedDate {
     return formatter.format(date);
   }
-}
 
-class ExpenseBucket {
-  const ExpenseBucket(this.expenses);
-  ExpenseBucket.forCategory(List<Debt> allExpenses) : expenses = allExpenses;
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'amount': amount,
+      'date': date.toIso8601String(),
+      'category': category.toString().split('.').last, // Convert enum to string
+    };
+  }
 
-  final List<Debt> expenses;
-
-  double get totalExpenses {
-    double sum = 0;
-    for (final expense in expenses) {
-      sum = sum + expense.amount;
-    }
-    return sum;
+  factory Debt.fromJson(Map<String, dynamic> json) {
+    return Debt(
+      title: json['title'],
+      amount: json['amount'],
+      date: DateTime.parse(json['date']),
+      category: Catgory.values.firstWhere(
+        (e) => e.toString().split('.').last == json['category'],
+      ),
+    );
   }
 }

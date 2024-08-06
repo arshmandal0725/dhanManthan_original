@@ -1,3 +1,4 @@
+import 'package:dhanmanthan_original/api/api.dart';
 import 'package:dhanmanthan_original/providers/debt_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:dhanmanthan_original/models/debt.dart';
@@ -16,6 +17,7 @@ class HomeDebt extends ConsumerStatefulWidget {
 class _HomeDebtState extends ConsumerState {
   void add(Debt exp) {
     ref.read(debtProvider.notifier).add(exp);
+    API().createDebt(exp);
   }
 
   void remove(Debt expense) {
@@ -46,10 +48,14 @@ class _HomeDebtState extends ConsumerState {
     if (ref.watch(debtProvider).isNotEmpty) {
       (width <= 600)
           ? mainContent = Column(
-              children: [Expanded(child: ExpenseList(ref.watch(debtProvider), remove))],
+              children: [
+                Expanded(child: ExpenseList(ref.watch(debtProvider), remove))
+              ],
             )
           : mainContent = Row(
-              children: [Expanded(child: ExpenseList(ref.watch(debtProvider), remove))],
+              children: [
+                Expanded(child: ExpenseList(ref.watch(debtProvider), remove))
+              ],
             );
     }
     return Scaffold(

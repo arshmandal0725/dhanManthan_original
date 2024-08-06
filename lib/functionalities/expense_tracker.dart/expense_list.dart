@@ -45,9 +45,9 @@ class ExpenseList extends StatelessWidget {
                           ),
                           Expanded(child: Text('${expences[index].amount}')),
                           const Spacer(),
-                          Icon(categoryIcons[expences[index].catigory]),
+                          Icon(categoryIcons[expences[index].category]),
                           const SizedBox(width: 3),
-                          Text('${expences[index].formattedDate}')
+                          Text(expences[index].formattedDate)
                         ],
                       ),
                     ),

@@ -42,10 +42,10 @@ class Chart extends StatelessWidget {
       height: 180,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
-            Theme.of(context).colorScheme.primary.withOpacity(0.3),
-            Theme.of(context).colorScheme.primary.withOpacity(0.0)
+            Color.fromARGB(255, 173, 218, 254),
+            Color.fromARGB(255, 228, 243, 255)
           ],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
@@ -73,15 +73,10 @@ class Chart extends StatelessWidget {
                   (bucket) => Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: Icon(
-                        categoryIcons[bucket.category],
-                        color: isDarkMode
-                            ? Theme.of(context).colorScheme.secondary
-                            : Theme.of(context)
-                                .colorScheme
-                                .primary
-                                .withOpacity(0.7),
-                      ),
+                      child: Icon(categoryIcons[bucket.category],
+                          color: isDarkMode
+                              ? Theme.of(context).colorScheme.secondary
+                              : const Color.fromARGB(255, 92, 172, 237)),
                     ),
                   ),
                 )

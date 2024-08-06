@@ -15,7 +15,7 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  Category _selectedCategory = Category.plus;
+  Catgory _selectedCategory = Catgory.plus;
   DateTime? _selectedDate;
 
   void savingExpense() {
@@ -117,7 +117,7 @@ class _NewExpenseState extends State<NewExpense> {
               ),
               DropdownButton(
                   value: _selectedCategory,
-                  items: Category.values
+                  items: Catgory.values
                       .map((category) => DropdownMenuItem(
                           value: category,
                           child: Text(category.name.toUpperCase())))

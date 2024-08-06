@@ -45,7 +45,7 @@ class _NewExpenseState extends State<NewExpense> {
         title: _titleController.text,
         amount: amount,
         date: _selectedDate!,
-        catigory: _selectedCategory));
+        category: _selectedCategory));
     Navigator.pop(context);
   }
 
